@@ -5112,6 +5112,7 @@ const request = async({ method, instanceConfig, data, files, file, actions, igno
           data = convertToFormData(dataJson, filesJson)
           instanceConfig = await updateConfig(instanceConfig, data, actions)
         } catch(error) {
+          actions.warning(error)
           actions.setFailed(JSON.stringify({ message: `Unable to convert Data and Files into FormData: ${error.message}`, data: dataJson, files: filesJson }))
           return
         }
