@@ -2453,6 +2453,8 @@ DelayedStream.create = function(source, options) {
     return realEmit.apply(source, arguments);
   };
 
+  core.info("source.on:");
+  core.info(source);
   source.on('error', function() {});
   if (delayedStream.pauseStream) {
     source.pause();
